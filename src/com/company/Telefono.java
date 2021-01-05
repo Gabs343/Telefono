@@ -6,17 +6,35 @@ public class Telefono {
     private boolean encendido;
     private boolean conexionUsb;
     //Interfaz interfaz;
-    //Memoria memorias = new Memoria[1];
+    private Memoria[] memorias = new Memoria[2];
 
-    public void Encender(){}
+    public Telefono(int bateria, Memoria memoria){
+            this.bateria = bateria;
+            memorias[0] = memoria;
+    }
 
-    public void Apagar(){}
+    public void Encender(){
+        encendido = true;
+    }
 
-    public void AñadirMemoriaExterna(){}
+    public void Apagar(){
+        encendido = false;
+    }
 
-    public void ExtraerMemoriaExterna(){}
+    public void AñadirMemoriaExterna(Memoria memoria){
+        memorias[1] = memoria;
+    }
 
-    public void Conectar(){}
+    public void ExtraerMemoriaExterna(Inventario inventario){
+       inventario.Añadir(getMemoriaExterna());
+    }
+
+    public void Conectar(){
+        for(int i = 0; bateria < 100; i++){
+            bateria += 5;
+            System.out.print(bateria + "-");
+        }
+    }
 
     public void ConectarADispositivo(){}
 
@@ -28,6 +46,10 @@ public class Telefono {
 
     public int getBateria() {
         return bateria;
+    }
+
+    private Memoria getMemoriaExterna(){
+        return memorias[1];
     }
 
     public boolean isConexionUsb() {
