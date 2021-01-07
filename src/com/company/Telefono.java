@@ -13,6 +13,7 @@ public class Telefono {
     public Telefono(int bateria, Memoria memoria){
             this.bateria = bateria;
             memorias.add(memoria);
+            memoria.Almacenar(new Tienda(543, "Play Store"));
     }
 
     public void Encender(){
