@@ -20,5 +20,9 @@ public class Tienda extends App{
 
     }
 
+    private void DescargarApp(Memoria memoria, App app){
+        memoria.Almacenar(app);
+    }
+
 
 }
