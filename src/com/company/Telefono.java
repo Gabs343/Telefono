@@ -7,21 +7,19 @@ public class Telefono {
     private int bateria;
     private boolean encendido;
     private boolean conexionUsb;
-    //Interfaz interfaz;
+    private Interfaz interfaz;
     private ArrayList<Memoria> memorias = new ArrayList<>();
 
     public Telefono(int bateria, Memoria memoria){
             this.bateria = bateria;
             memorias.add(memoria);
             memoria.Almacenar(new Tienda(543, "Play Store"));
+            interfaz = new Interfaz(234, 472);
     }
 
-    public void Encender(){
-        encendido = true;
-    }
-
-    public void Apagar(){
-        encendido = false;
+    public void Encendido(boolean encendido){
+        this.encendido = encendido;
+        interfaz.mostrar(encendido);
     }
 
     public void AñadirMemoriaExterna(Memoria memoria){
@@ -58,10 +56,10 @@ public class Telefono {
 
     public void DesconectarDeDispositivo(){
         conexionUsb = false;
-        Descanectar();
+        Desconectar();
     }
 
-    public void Descanectar(){
+    public void Desconectar(){
         System.out.println("Se ha desconectado el telefono");
     }
 
